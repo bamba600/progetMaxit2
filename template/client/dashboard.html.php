@@ -40,8 +40,15 @@
             <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 mb-8 shadow-xl">
                 <h2 class="text-2xl font-bold text-white mb-4">Compte Principal</h2>
                 <div class="text-4xl font-bold text-white">
-                    <?= number_format($comptePrincipal ? $comptePrincipal->getSolde() : 0, 2, ',', ' ') ?> <span class="text-xl">FCFA</span>
+                    <?php if ($comptePrincipal): ?>
+                        <?= number_format($comptePrincipal->getSolde(), 2, ',', ' ') ?> <span class="text-xl">FCFA</span>
+                    <?php else: ?>
+                        0,00 <span class="text-xl">FCFA</span>
+                    <?php endif; ?>
                 </div>
+                <?php if ($comptePrincipal): ?>
+                    <p class="text-blue-200 mt-2">Numéro de compte: <?= htmlspecialchars($comptePrincipal->getNumeroCompte()) ?></p>
+                <?php endif; ?>
             </div>
 
             <!-- Transactions Section -->

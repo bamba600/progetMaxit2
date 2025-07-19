@@ -7,29 +7,19 @@
             <h1 class="text-2xl font-bold text-blue-600 mb-6">MAXITSA</h1>
             <h2 class="text-xl font-semibold text-black mb-8">BIENVENUE SUR MAXIT SA</h2>
         </div>
-        <?php if (isset($error)):?>
-            
-         <div class="text-xs text-red-400"><?=$error?></div> 
-
-          <?php endif ;?>
+        
+        <!-- Affichage des erreurs globales -->
+        <?php if (isset($errors['globalErrors'])): ?>
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <?= htmlspecialchars($errors['globalErrors']) ?>
+            </div>
+        <?php endif; ?>
 
         <!-- Formulaire de connexion -->
         <form method="POST" action="/login" class="space-y-6">
-            <?php if (isset($success) && $success): ?>
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                    <?php echo htmlspecialchars($success); ?>
-                </div>
-            <?php endif; ?>
-            
             <?php if (isset($_GET['expired'])): ?>
                 <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded">
                     Votre session a expiré. Veuillez vous reconnecter.
-                </div>
-            <?php endif; ?>
-            
-            <?php if (isset($errors['general'])): ?>
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-                    <?= htmlspecialchars($errors['general']) ?>
                 </div>
             <?php endif; ?>
 
@@ -55,8 +45,8 @@
                     placeholder="MOT DE PASSE"
                     class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-500"
                 >
-                <?php if (isset($errors['mot_de_passe'])): ?>
-                    <p class="text-red-500 text-sm mt-1"><?= htmlspecialchars(is_array($errors['mot_de_passe']) ? implode(', ', $errors['mot_de_passe']) : $errors['mot_de_passe']) ?></p>
+                <?php if (isset($errors['password'])): ?>
+                    <p class="text-red-500 text-sm mt-1"><?= htmlspecialchars(is_array($errors['password']) ? implode(', ', $errors['password']) : $errors['password']) ?></p>
                 <?php endif; ?>
             </div>
 

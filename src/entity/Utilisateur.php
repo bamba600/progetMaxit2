@@ -193,17 +193,18 @@ class Utilisateur extends AbstractEntity{
   }
    public static function toObject(array $data):?object{
       $user = new Utilisateur();
-      $user->setId($data['id']);
-      $user->setnom($data['nom']);
-      $user->setPrenom($data['prenom']);
-      $user->setNumeroTelephone($data['numerotelephone']);
-      $user->setLogin($data['login']);
-      $user->setPassword($data['password']);
-      $user->setPhotoRecto($data['photorecto']);
-      $user->setPhotoVerso($data['photoverso']);
-      $user->setNumeroIdentite(($data['numeroidentite']));
+      $user->setId($data['id'] ?? 0);
+      $user->setnom($data['nom'] ?? '');
+      $user->setPrenom($data['prenom'] ?? '');
+      $user->setNumeroTelephone($data['numerotelephone'] ?? '');
+      $user->setAdresse($data['adresse'] ?? '');
+      $user->setLogin($data['login'] ?? '');
+      $user->setPassword($data['password'] ?? '');
+      $user->setPhotoRecto($data['photorecto'] ?? '');
+      $user->setPhotoVerso($data['photoverso'] ?? '');
+      $user->setNumeroIdentite($data['numeroidentite'] ?? '');
       $TypeUtilisateur = new TypeUtilisateur();
-      $TypeUtilisateur->setid($data['idtypeutilisateur']);
+      $TypeUtilisateur->setId($data['idtypeutilisateur'] ?? 0);
       $user->setTypeUtilisateur($TypeUtilisateur);
       return $user;
    }
@@ -213,7 +214,8 @@ class Utilisateur extends AbstractEntity{
     'typeUtilisateur'=>$this->getTypeUtilisateur()->toArray(),
     'nom'=>$this->getNom(),
     'prenom'=>$this->getPrenom(),
-    'numeroNumerotelephone'=>$this->getNumeroTelephone(),
+    'numeroTelephone'=>$this->getNumeroTelephone(),
+    'adresse'=>$this->getAdresse(),
     'login'=>$this->getLogin(),
     'password'=>$this->getPassword(),
     'numeroIdentite'=>$this->getNumeroIdentite(),

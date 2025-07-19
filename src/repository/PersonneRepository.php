@@ -1,5 +1,5 @@
 <?php
-       namespace App\Repository;
+namespace App\Repository;
 
 use App\Core\Abstract\AbstractRepository;
 use App\Entity\Utilisateur;
@@ -36,5 +36,21 @@ use PDO;
                    
 
                 }
+                 public function selectAll()
+               {
+
+               }
+                 public function insert($entity)
+                 {
+
+                 }
+                public function update($entity)
+                {
+
+                }
+               public function delete($entity)
+               {
+
+               }
             
        }

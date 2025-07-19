@@ -8,10 +8,11 @@ class Compte extends AbstractEntity{
   private ?DateTime $dateCreation = null;
   private float $solde;
   private int $numeroCompte;
+  private string $type = 'principal'; // principal ou secondaire
   private ?StatutCompte $statutCompte = null;
   private array $transactions = [];
   private Utilisateur $Utilisateur;
-  public function __construct($id = 0,?DateTime $dateCreation=null,$solde=0,$numeroCompte ='',?StatutCompte $statutCompte = null){
+  public function __construct($id = 0,?DateTime $dateCreation=null,$solde=0,$numeroCompte = 0,?StatutCompte $statutCompte = null){
     $this->id = $id;
     $this->dateCreation = $dateCreation;
     $this->solde = $solde;
@@ -99,14 +100,29 @@ class Compte extends AbstractEntity{
 
     return $this;
   }
+  public function getType()
+  {
+    return $this->type;
+  }
+  
+  public function setType($type)
+  {
+    $this->type = $type;
+    return $this;
+  }
    static public function toObject(array $data):?object{
     $compte = new Compte();
-    $compte->setId($data['id']);
-    $compte->setSolde($data['solde']);
-    $compte->setNumeroCompte($data['numerocompte']);
-    $compte->setStatutCompte($data['statutcompte']);
+    $compte->setId($data['id'] ?? 0);
+    $compte->setSolde($data['solde'] ?? 0);
+    $compte->setNumeroCompte((int)($data['numeroCompte'] ?? 0));
+    $compte->setType($data['type'] ?? 'principal');
+    
+    if(isset($data['date_creation'])) {
+        $compte->setDate_creation(new DateTime($data['date_creation']));
+    }
+    
     $utilisateur = new Utilisateur();
-    $utilisateur->getId($data['idutilisateur']);
+    $utilisateur->setId($data['idUtilisateur'] ?? 0);
     $compte->setUtilisateur($utilisateur);
 
     return $compte;
@@ -115,12 +131,11 @@ class Compte extends AbstractEntity{
     return[
       'id'=>$this->getId(),
       'solde'=>$this->getSolde(),
-      'numercompte'=>$this->getNumeroCompte(),
-      'statutcompte'=>$this->getStatutCompte(),
+      'numeroCompte'=>$this->getNumeroCompte(),
+      'statutCompte'=>$this->getStatutCompte()?->value,
       'utilisateur'=>$this->getUtilisateur()->toArray(),
-      'transations'=>array_map(fn($transaction) => $transaction->toArray(),$this->getTransactions())
+      'transactions'=>array_map(fn($transaction) => $transaction->toArray(),$this->getTransactions())
     ];
-
    }
   public function toJson(){
   }

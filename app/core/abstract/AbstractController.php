@@ -18,6 +18,13 @@ abstract class AbstractController{
   abstract public function edit();
   abstract public function create();
   public function renderHtml(string $view,array $data=[]):void{
+    // Extraire les données pour les rendre disponibles comme variables dans la vue
+    extract($data);
+    
+    // Rendre les erreurs de session disponibles
+    $errors = $this->session->get('errors') ?? [];
+    $this->session->unset('errors'); // Supprimer les erreurs après affichage
+    
     ob_start();
     require_once __DIR__.'/../../../template/'.$view.'.html.php';
     $content = ob_get_clean();

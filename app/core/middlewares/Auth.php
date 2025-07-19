@@ -1,13 +1,12 @@
 <?php
 namespace App\Core\Middlewares;
 use App\Core\Session;
-use App\Core\App;
 
 class Auth {
     private Session $session;
     
     public function __construct() {
-        $this->session = App::getDependency('Session');
+        $this->session = Session::getInstance();
     }
     
     public function __invoke()

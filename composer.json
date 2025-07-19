@@ -10,11 +10,18 @@
             "App\\Controller\\":"src/controller/",
             "App\\Core\\":"app/core/",
             "App\\Core\\Abstract\\":"app/core/abstract/",
-            "App\\Core\\Middlewares\\":"app/core/middlewares/"
-
-            
+            "App\\Core\\Middlewares\\":"app/core/middlewares/",
+            "App\\Migrations\\":"migrations/",
+            "App\\Seeders\\":"seeders/"
         }
     },
+    "scripts": {
+        "database:migrate": "@php bin/migrate.php",
+        "database:seed": "@php bin/seed"
+    },
+    "bin":[
+        "bin/migrate"
+    ],
     "authors": [
         {
             "name": "thierno"
