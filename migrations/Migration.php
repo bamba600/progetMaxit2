@@ -20,6 +20,8 @@ use PDO;
               public function run()
               {
                    $this->createDatabase();
+                   // Reconnect to the specific database after creating it
+                   $this->reconnectToDatabase();
                    $this->createTables();
               }
 
@@ -27,8 +29,18 @@ use PDO;
               {
                   if ($this->driver === 'mysql') {
                       $this->pdo->exec("CREATE DATABASE IF NOT EXISTS " . DB_NAME);
-                      $this->pdo->exec("USE " . DB_NAME);
+                      echo "Database " . DB_NAME . " created or already exists.\n";
                   } 
+              }
+
+              private function reconnectToDatabase()
+              {
+                  if ($this->driver === 'mysql') {
+                      // Reconnect to the specific database
+                      $this->pdo = new PDO(DB_DSN, USER, PASSWORD);
+                      $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                      echo "Reconnected to database " . DB_NAME . "\n";
+                  }
               }
 
               public function createTables()

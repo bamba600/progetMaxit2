@@ -1,34 +1,18 @@
 {
-    "name": "remediation/maxit",
-    "version": "1.0.0",
-    "autoload": {
-        "psr-4": {
-            "Remediation\\Maxit\\": "src/",
-            "App\\Entity\\":"src/entity/",
-            "App\\Service\\":"src/service/",
-            "App\\Repository\\":"src/repository/",
-            "App\\Controller\\":"src/controller/",
-            "App\\Core\\":"app/core/",
-            "App\\Core\\Abstract\\":"app/core/abstract/",
-            "App\\Core\\Middlewares\\":"app/core/middlewares/",
-            "App\\Migrations\\":"migrations/",
-            "App\\Seeders\\":"seeders/"
-        }
-    },
-    "scripts": {
-        "database:migrate": "@php bin/migrate.php",
-        "database:seed": "@php bin/seed"
-    },
-    "bin":[
-        "bin/migrate"
-    ],
-    "authors": [
-        {
-            "name": "thierno"
-        }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6",
-        "symfony/yaml": "^7.3"
+  "name": "bamba/maxist",
+  "description": "Mini framework PHP MVC développé par Bamba",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Maxist\\": "app/core/"
     }
+  },
+  "authors": [
+    {
+      "name": "Bamba",
+      "email": "nbamba12345@gmail.com"
+    }
+  ],
+  "require": {}
 }

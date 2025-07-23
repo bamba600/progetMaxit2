@@ -21,13 +21,13 @@ class ComposerStaticInitf1df6d4af12b13431c8aff1994844f3e
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
         ),
-        'R' => 
-        array (
-            'Remediation\\Maxit\\' => 18,
-        ),
         'P' => 
         array (
             'PhpOption\\' => 10,
+        ),
+        'M' => 
+        array (
+            'Maxist\\' => 7,
         ),
         'G' => 
         array (
@@ -36,18 +36,6 @@ class ComposerStaticInitf1df6d4af12b13431c8aff1994844f3e
         'D' => 
         array (
             'Dotenv\\' => 7,
-        ),
-        'A' => 
-        array (
-            'App\\Service\\' => 12,
-            'App\\Seeders\\' => 12,
-            'App\\Repository\\' => 15,
-            'App\\Migrations\\' => 15,
-            'App\\Entity\\' => 11,
-            'App\\Core\\Middlewares\\' => 21,
-            'App\\Core\\Abstract\\' => 18,
-            'App\\Core\\' => 9,
-            'App\\Controller\\' => 15,
         ),
     );
 
@@ -68,13 +56,13 @@ class ComposerStaticInitf1df6d4af12b13431c8aff1994844f3e
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
-        'Remediation\\Maxit\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Maxist\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/core',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (
@@ -83,42 +71,6 @@ class ComposerStaticInitf1df6d4af12b13431c8aff1994844f3e
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
-        'App\\Service\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/service',
-        ),
-        'App\\Seeders\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/seeders',
-        ),
-        'App\\Repository\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/repository',
-        ),
-        'App\\Migrations\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/migrations',
-        ),
-        'App\\Entity\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/entity',
-        ),
-        'App\\Core\\Middlewares\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/core/middlewares',
-        ),
-        'App\\Core\\Abstract\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/core/abstract',
-        ),
-        'App\\Core\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/core',
-        ),
-        'App\\Controller\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/controller',
         ),
     );
 

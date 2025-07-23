@@ -9,7 +9,7 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'transaction_type') THEN
         CREATE TYPE transaction_type AS ENUM ('paiement', 'depot', 'retrait');
     END IF;
-END$$;
+END$$;              
 
 -- Table: typeUtilisateur
 CREATE TABLE IF NOT EXISTS typeUtilisateur (
